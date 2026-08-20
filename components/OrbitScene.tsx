@@ -1,0 +1,7 @@
+'use client';
+import { Canvas, useFrame } from '@react-three/fiber';
+import { Float, Sparkles } from '@react-three/drei';
+import { useRef } from 'react';
+import * as THREE from 'three';
+function Signal(){const group=useRef<THREE.Group>(null);useFrame(state=>{if(group.current){group.current.rotation.y=state.clock.elapsedTime*.35;group.current.rotation.z=Math.sin(state.clock.elapsedTime*.45)*.08;}});return <group ref={group}><mesh rotation={[.6,.25,-.3]}><torusGeometry args={[1.35,.22,18,80]}/><meshStandardMaterial color="#d1ad2f" metalness={.78} roughness={.2}/></mesh><mesh rotation={[.6,.25,-.3]}><torusGeometry args={[.82,.16,18,80]}/><meshStandardMaterial color="#2869bb" metalness={.65} roughness={.19}/></mesh><mesh rotation={[.6,.25,-.3]}><torusGeometry args={[.37,.13,18,80]}/><meshStandardMaterial color="#69a53b" metalness={.65} roughness={.2}/></mesh><mesh position={[0,0,.15]}><sphereGeometry args={[.21,32,32]}/><meshStandardMaterial color="#f4d25a" emissive="#d1ad2f" emissiveIntensity={.6}/></mesh></group>;}
+export default function OrbitScene(){return <div className="scene" aria-hidden="true"><Canvas camera={{position:[0,0,5],fov:45}} dpr={[1,1.5]}><ambientLight intensity={1.8}/><pointLight position={[3,3,4]} intensity={22} color="#f4d25a"/><pointLight position={[-4,-2,1]} intensity={10} color="#2869bb"/><Float speed={2} rotationIntensity={.3} floatIntensity={.6}><Signal/></Float><Sparkles count={36} scale={5} size={2} speed={.25} color="#f4d25a"/></Canvas></div>;}
