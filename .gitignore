@@ -7,6 +7,7 @@ out/
 
 # Cache local e arquivos da Vercel
 .npm-cache/
+.tmp/
 .vercel/
 
 # Variáveis de ambiente e segredos

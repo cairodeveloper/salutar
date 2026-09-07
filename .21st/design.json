@@ -1,0 +1,63 @@
+{
+  "version": 1,
+  "project": {
+    "name": "salutar-agencia",
+    "productType": "Creative marketing agency website",
+    "stack": [
+      "nextjs",
+      "react",
+      "tailwind-v3"
+    ]
+  },
+  "sources": {
+    "tokens": [
+      "app/globals.css"
+    ],
+    "components": ["components/AgencySite.tsx", "components/BrandMark.tsx", "components/Portfolio.tsx"],
+    "assets": ["app/logo-sem-fundo.png", "public/models/Logo.glb", "public/portfolio"],
+    "instructions": []
+  },
+  "design": {
+    "colorMode": "light-and-dark",
+    "colors": {"ink": "#08080d", "paper": "#fffdf9", "orange": "#ff7040", "aqua": "#aee6ed", "electric": "#3939ff", "lilac": "#dbb8ff", "gold": "#f2bb05"},
+    "typography": {"body": "Manrope", "emphasis": "Playfair Display italic", "labels": "DM Mono"},
+    "spacing": {"desktopGutter": "5.2vw", "mobileGutter": "6vw", "desktopSection": "155px", "mobileSection": "105px"},
+    "radius": {"previews": "4px", "actions": "50%"},
+    "shadows": {"usage": "Subtle depth on website previews and expanded service cards"},
+    "motion": {"portfolio": "Small hover lift, disabled for reduced motion"},
+    "density": "spacious"
+  },
+  "components": {
+    "installed": [],
+    "preferredPrimitives": ["BrandMark", "next/image", "lucide-react"],
+    "patterns": ["section", "section-intro", "eyebrow", "big-link"]
+  },
+  "constraints": {
+    "must": ["Preserve the existing Salutar identity: flat color sections, large headings, serif emphasis and numbered mono labels."],
+    "avoid": ["New UI dependencies for patterns already available in the project.", "Fabricated client website screenshots."]
+  },
+  "decisions": [],
+  "evidence": [
+    {
+      "fact": "design.colorMode:light-and-dark",
+      "source": "app/globals.css"
+    },
+    {
+      "fact": "design.tokens",
+      "source": "app/globals.css"
+    },
+    {
+      "fact": "project.stack:nextjs",
+      "source": "package.json"
+    },
+    {
+      "fact": "project.stack:react",
+      "source": "package.json"
+    },
+    {
+      "fact": "project.stack:tailwind-v3",
+      "source": "package.json"
+    }
+  ],
+  "generatedAt": "2026-09-07T19:55:04.723Z"
+}
