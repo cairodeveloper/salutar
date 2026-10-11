@@ -46,3 +46,75 @@
 @media(max-width:1100px){.portfolio-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:40px 24px}.portfolio-intro{align-items:flex-start;flex-direction:column;gap:28px}.portfolio-lead{max-width:460px}}
 @media(max-width:600px){.portfolio-grid{grid-template-columns:1fr;gap:42px;margin-top:42px}.portfolio-preview{padding:28px 20px}.portfolio-project-heading{margin-top:22px}.portfolio-project-heading h3{font-size:28px}.portfolio-description{max-width:none}.portfolio-footer{align-items:flex-start;flex-direction:column;margin-top:42px}.portfolio-footer .big-link{font-size:13px}.portfolio-preview-pending strong{font-size:56px}}
 @media(prefers-reduced-motion:reduce){.portfolio-browser,.portfolio-visit svg{transition:none}.portfolio-project-link:hover .portfolio-browser,.portfolio-project-link:focus-visible .portfolio-browser,.portfolio-project-link:hover .portfolio-visit svg{transform:none}}
+
+/* ===== Carrossel (O que fazemos / Portfólio) ===== */
+.carousel{margin-top:60px;--c-w:clamp(280px,34vw,440px);--c-ink:var(--ink)}
+.carousel-dark{--c-ink:var(--paper)}
+.carousel-viewport{overflow:hidden;padding:30px 0 34px;margin:0 -6vw;cursor:grab;outline:none;-webkit-mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent);mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent)}
+.carousel-viewport:active{cursor:grabbing}
+.carousel-viewport:focus-visible{outline:2px solid var(--electric);outline-offset:-2px}
+.carousel-track{display:flex;column-gap:28px;width:max-content;align-items:center;touch-action:pan-y}
+.carousel-slide{flex:0 0 var(--c-w);width:var(--c-w);transform:scale(.86);opacity:.5;filter:saturate(.7);transition:transform .6s cubic-bezier(.16,1,.3,1),opacity .4s,filter .4s;user-select:none;-webkit-user-select:none}
+.carousel-slide.is-active{transform:scale(1);opacity:1;filter:none}
+.carousel-slide img{-webkit-user-drag:none;user-select:none}
+.carousel-controls{display:flex;align-items:center;justify-content:center;gap:22px;color:var(--c-ink)}
+.carousel-arrow{width:42px;height:42px;border-radius:50%;border:1px solid currentColor;background:none;color:inherit;display:grid;place-items:center;cursor:pointer;transition:background .2s,color .2s,opacity .2s}
+.carousel-arrow:hover:not(:disabled){background:var(--c-ink);color:var(--paper)}
+.carousel-dark .carousel-arrow:hover:not(:disabled){color:var(--ink)}
+.carousel-arrow:disabled{opacity:.3;cursor:default}
+.carousel-dots{display:flex;align-items:center;gap:10px}
+.carousel-dot{border:0;padding:0;border-radius:50%;background:#d62d6f;opacity:.5;cursor:pointer;width:8px;height:8px;transition:width .3s,height .3s,opacity .3s}
+.carousel-dot[data-distance="1"]{width:13px;height:13px;opacity:.75}
+.carousel-dot.is-active{width:20px;height:20px;opacity:1}
+
+/* Card de serviço */
+.sv-card{position:relative;aspect-ratio:1/1.02;padding:26px;display:flex;flex-direction:column;justify-content:space-between;cursor:pointer;overflow:hidden;border-radius:4px;color:var(--ink);outline:none}
+.sv-card:focus-visible{box-shadow:0 0 0 3px var(--ink)}
+.sv-card.orange{background:var(--orange);color:#fff}
+.sv-card.aqua{background:var(--aqua)}
+.sv-card.electric{background:var(--electric);color:#fff}
+.sv-card.lilac{background:var(--lilac)}
+.sv-card.gold{background:var(--gold)}
+.sv-top{display:flex;justify-content:space-between;align-items:flex-start;font:500 16px 'DM Mono',monospace}
+.sv-top svg{transition:transform .5s cubic-bezier(.16,1,.3,1)}
+.sv-card.is-open .sv-top svg{transform:rotate(45deg)}
+.sv-body{display:flex;flex-direction:column;gap:8px;min-height:0}
+.sv-body small{font:10px 'DM Mono',monospace;text-transform:uppercase;letter-spacing:.06em;opacity:.65}
+.sv-bottom{display:flex;align-items:center;justify-content:space-between;gap:12px}
+.sv-bottom h3{margin:0;font-size:clamp(28px,3vw,40px);letter-spacing:-.05em;line-height:1.05}
+.sv-bottom a{flex-shrink:0;width:52px;height:52px;border-radius:50%;display:grid;place-items:center;background:var(--ink);color:#fff;transition:transform .3s}
+.sv-card.orange .sv-bottom a{background:#fff;color:var(--orange)}
+.sv-bottom a:hover{transform:scale(1.1) rotate(8deg)}
+.sv-text{max-height:0;opacity:0;overflow:hidden;transition:max-height .6s cubic-bezier(.22,1,.36,1),opacity .4s}
+.sv-text p{margin:0 0 10px;font-size:14px;line-height:1.6}
+.sv-text p:first-child{font-weight:600}
+.sv-card.is-open .sv-text{max-height:260px;opacity:1}
+
+/* Portfólio em carrossel */
+.portfolio-carousel{--c-w:clamp(290px,38vw,520px)}
+.portfolio-carousel .portfolio-project-heading h3{font-size:clamp(22px,2.4vw,34px)}
+
+/* Avaliações: parede de tijolos */
+.testimonials{background:var(--paper);color:var(--ink);overflow:hidden}
+.testimonials h2 em{color:var(--electric)}
+.brick-wall{margin:60px -6vw 0;display:flex;flex-direction:column;gap:18px;-webkit-mask-image:linear-gradient(90deg,transparent,#000 6%,#000 94%,transparent);mask-image:linear-gradient(90deg,transparent,#000 6%,#000 94%,transparent)}
+.brick-row{display:flex;gap:18px;width:max-content;animation:brick-slide linear infinite}
+.brick-row[data-reverse="true"]{animation-direction:reverse}
+.brick-row:nth-child(2){margin-left:-140px}
+.brick-wall:hover .brick-row{animation-play-state:paused}
+@keyframes brick-slide{to{transform:translateX(calc(-50% - 9px))}}
+.brick{margin:0;flex:0 0 auto;min-height:220px;padding:26px 28px;border-radius:28px;display:flex;flex-direction:column;justify-content:space-between;gap:18px;color:var(--ink)}
+.brick-s{width:300px}.brick-m{width:400px}.brick-l{width:500px}
+.brick-electric{background:var(--electric);color:#fff}
+.brick-orange{background:var(--orange);color:#fff}
+.brick-aqua{background:var(--aqua)}.brick-lilac{background:var(--lilac)}.brick-gold{background:var(--gold)}
+.brick blockquote{margin:0;font-size:clamp(16px,1.5vw,20px);line-height:1.45;letter-spacing:-.02em;font-weight:500}
+.brick figcaption{display:flex;flex-direction:column;gap:2px;font-size:13px}
+.brick figcaption span{font:10px 'DM Mono',monospace;text-transform:uppercase;letter-spacing:.06em;opacity:.7}
+@media(max-width:800px){.carousel{--c-w:78vw}.portfolio-carousel{--c-w:82vw}.brick-s{width:250px}.brick-m{width:290px}.brick-l{width:330px}.brick{min-height:200px;padding:22px}.sv-card{padding:20px}}
+@media(prefers-reduced-motion:reduce){.brick-row{animation:none}.brick-wall{overflow-x:auto;-webkit-mask-image:none;mask-image:none}.carousel-slide{transition:none}}
+
+/* Evita scroll horizontal causado pelos carrosséis e pela parede de tijolos */
+html,body{overflow-x:clip;max-width:100%}
+.services,.portfolio,.testimonials{overflow-x:clip;max-width:100vw}
+.carousel,.carousel-viewport,.brick-wall{max-width:none}

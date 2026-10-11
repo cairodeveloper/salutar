@@ -1,4 +1,5 @@
 import Image from 'next/image';
+import Carousel from './Carousel';
 import { ArrowDownRight, ArrowUpRight } from 'lucide-react';
 
 const projects = [
@@ -42,8 +43,8 @@ export default function Portfolio() {
         <p className="portfolio-lead">Cada negócio tem uma história. Veja como transformamos três delas em experiências digitais com identidade própria.</p>
       </div>
 
-      <div className="portfolio-grid">
-        {projects.map((project, index) => (
+      <Carousel label="Portfólio" variant="dark" className="portfolio-carousel" items={
+        projects.map((project, index) => (
           <article className={`portfolio-project portfolio-${project.color}`} key={project.name}>
             <a className="portfolio-project-link" href={project.url} target="_blank" rel="noopener noreferrer" aria-label={`Visitar o site ${project.name} (abre em nova aba)`}>
               <div className="portfolio-project-meta"><span>0{index + 1}</span><span>{project.category}</span></div>
@@ -61,8 +62,8 @@ export default function Portfolio() {
               <p className="portfolio-description">{project.description}</p>
             </a>
           </article>
-        ))}
-      </div>
+        ))
+      } />
 
       <div className="portfolio-footer"><p>Seu projeto pode ser o próximo.</p><a href="/contato" className="big-link">Vamos tirar sua ideia do papel <span><ArrowDownRight aria-hidden="true"/></span></a></div>
     </section>
